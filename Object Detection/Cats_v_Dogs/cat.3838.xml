@@ -1,0 +1,26 @@
+<annotation>
+	<folder>unlabeled_data</folder>
+	<filename>cat.3838.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/tf-models/research/object_detection/unlabeled_data/cat.3838.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>369</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>11</xmin>
+			<ymin>23</ymin>
+			<xmax>369</xmax>
+			<ymax>498</ymax>
+		</bndbox>
+	</object>
+</annotation>

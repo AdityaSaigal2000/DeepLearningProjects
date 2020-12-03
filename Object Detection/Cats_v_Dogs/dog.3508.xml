@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train_images</folder>
+	<filename>dog.3508.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/tf-models/research/object_detection/train_images/dog.3508.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>499</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>85</xmin>
+			<ymin>20</ymin>
+			<xmax>425</xmax>
+			<ymax>485</ymax>
+		</bndbox>
+	</object>
+</annotation>

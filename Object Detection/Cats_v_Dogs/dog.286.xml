@@ -1,0 +1,26 @@
+<annotation>
+	<folder>unlabeled_data</folder>
+	<filename>dog.286.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/tf-models/research/object_detection/unlabeled_data/dog.286.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>499</width>
+		<height>353</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>62</xmin>
+			<ymin>61</ymin>
+			<xmax>438</xmax>
+			<ymax>328</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>test_images</folder>
+	<filename>cat.47.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/models/research/object_detection/test_images/cat.47.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>258</width>
+		<height>214</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>5</xmin>
+			<ymin>4</ymin>
+			<xmax>250</xmax>
+			<ymax>211</ymax>
+		</bndbox>
+	</object>
+</annotation>

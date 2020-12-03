@@ -1,0 +1,1 @@
+<annotation><filename>cat.3756.jpg</filename><size><width>499</width><height>375</height><depth>3</depth></size><object><name>cat</name><pose>Unspecified</pose><truncated>0</truncated><difficult>0</difficult><bndbox><xmin>7.789141893386841</xmin><ymin>60.323316603899</ymin><xmax>384.27740037441254</xmax><ymax>373.4082877635956</ymax></bndbox></object></annotation>

@@ -1,0 +1,38 @@
+<annotation>
+	<folder>test_images</folder>
+	<filename>dog.3538.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/models/research/object_detection/test_images/dog.3538.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>377</width>
+		<height>278</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>45</xmin>
+			<ymin>48</ymin>
+			<xmax>182</xmax>
+			<ymax>277</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>dog</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>161</xmin>
+			<ymin>54</ymin>
+			<xmax>352</xmax>
+			<ymax>274</ymax>
+		</bndbox>
+	</object>
+</annotation>

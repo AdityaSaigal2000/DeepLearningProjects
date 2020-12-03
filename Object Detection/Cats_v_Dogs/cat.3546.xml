@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train_images</folder>
+	<filename>cat.3546.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/tf-models/research/object_detection/train_images/cat.3546.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>500</width>
+		<height>373</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>6</xmin>
+			<ymin>1</ymin>
+			<xmax>500</xmax>
+			<ymax>342</ymax>
+		</bndbox>
+	</object>
+</annotation>

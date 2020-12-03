@@ -1,0 +1,1 @@
+<annotation><filename>dog.322.jpg</filename><size><width>499</width><height>398</height><depth>3</depth></size><object><name>dog</name><pose>Unspecified</pose><truncated>0</truncated><difficult>0</difficult><bndbox><xmin>101.76134783029556</xmin><ymin>71.01451963186264</ymin><xmax>432.1051478981972</xmax><ymax>375.5114984512329</ymax></bndbox></object></annotation>

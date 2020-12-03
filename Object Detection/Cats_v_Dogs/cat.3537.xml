@@ -1,0 +1,26 @@
+<annotation>
+	<folder>new_images</folder>
+	<filename>cat.3537.jpg</filename>
+	<path>/home/alvaro/Área de Trabalho/tf-models/research/object_detection/new_images/cat.3537.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>463</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>131</xmin>
+			<ymin>127</ymin>
+			<xmax>414</xmax>
+			<ymax>388</ymax>
+		</bndbox>
+	</object>
+</annotation>
