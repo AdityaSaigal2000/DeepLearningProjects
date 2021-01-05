@@ -26,7 +26,7 @@ torch.manual_seed(0) #For reproducibility
 #Data processing:
 def processLanguages(lang1, lang2):
     #Given 2 languages (and a file with the data in the same directory, this function returns a shuffled dict of lists of the sentences in both languages)
-    with open(lang1 + "-" + lang2 + ".txt", "r") as file:
+    with open(lang1 + "-" + lang2 + ".txt", "r", encoding = "utf-8") as file:
         lines = file.readlines()
 
     langs = {lang1 : [], lang2 : []}
@@ -140,38 +140,39 @@ def predict(model, sentence):
             output_ls.append(current_word)
     return " ".join(output_ls)
 
-#Setting up data for French to English translation.
-langs = processLanguages("eng", "fra")
-eng_words_idx = word2idx(langs["eng"])
-fra_words_idx = word2idx(langs["fra"])
+if(__name__ == "__main__"):
+    #Setting up data for French to English translation.
+    langs = processLanguages("eng", "fra")
+    eng_words_idx = word2idx(langs["eng"])
+    fra_words_idx = word2idx(langs["fra"])
 
-#Adding EOS and SOS tokens to the language dictionaries.
-eng_words_idx["<EOS>"] = len(eng_words_idx)
-eng_words_idx["<SOS>"] = len(eng_words_idx)
-eng_words_idx["<PAD>"] = len(eng_words_idx)
-fra_words_idx["<EOS>"] = len(fra_words_idx)
-fra_words_idx["<SOS>"] = len(fra_words_idx)
-fra_words_idx["<PAD>"] = len(fra_words_idx)
+    #Adding EOS and SOS tokens to the language dictionaries.
+    eng_words_idx["<EOS>"] = len(eng_words_idx)
+    eng_words_idx["<SOS>"] = len(eng_words_idx)
+    eng_words_idx["<PAD>"] = len(eng_words_idx)
+    fra_words_idx["<EOS>"] = len(fra_words_idx)
+    fra_words_idx["<SOS>"] = len(fra_words_idx)
+    fra_words_idx["<PAD>"] = len(fra_words_idx)
 
-#Define a model based on the number of words in the corpus (we randomly sampled 6000 sentences from the dataset)
-model = Translator(7349, 256, 512, 512, 5561, 256, fra_words_idx, eng_words_idx)
-data = Sentences(langs)
-train_sampler = SubsetRandomSampler(indices[0:6000])
+    #Define a model based on the number of words in the corpus (we randomly sampled 6000 sentences from the dataset)
+    model = Translator(7349, 256, 512, 512, 5561, 256, fra_words_idx, eng_words_idx)
+    data = Sentences(langs)
+    train_sampler = SubsetRandomSampler(indices[0:6000])
 
-#Setup the train loader
-train_loader = DataLoader(data, batch_size = 400, num_workers = 4, sampler = train_sampler)
+    #Setup the train loader
+    train_loader = DataLoader(data, batch_size = 400, num_workers = 4, sampler = train_sampler)
 
-#Train the model
-train(model, train_loader, 400, 10, 0.002, 0.9, 0.03, 0.5, 256)
-torch.save({"model_state_dict": model.state_dict()}, "./translator.pt" ) #Save the model
+    #Train the model
+    train(model, train_loader, 400, 10, 0.002, 0.9, 0.03, 0.5, 256)
+    torch.save({"model_state_dict": model.state_dict()}, "./translator.pt" ) #Save the model
 
 
-#Evaluate the trained model by making predictions on the training set and calculating the BLEU scores for each sentence.
-bleu = 0
-for i in range(6000):
-    ans = predict(model, langs["fra"][i]).split()
-    bleu += sentence_bleu([langs["eng"][i].split()], ans)
+    #Evaluate the trained model by making predictions on the training set and calculating the BLEU scores for each sentence.
+    bleu = 0
+    for i in range(6000):
+        ans = predict(model, langs["fra"][i]).split()
+        bleu += sentence_bleu([langs["eng"][i].split()], ans)
 
-#Print the BLEU Score on the traning set
-bleu = bleu/6000
+    #Print the BLEU Score on the traning set
+    bleu = bleu/6000
 

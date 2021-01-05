@@ -6,6 +6,16 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 import itertools
+from torch.utils.data import Dataset, DataLoader
+import warnings
+
+warnings.filterwarnings("ignore", category = DeprecationWarning)
+
+use_cuda = torch.cuda.is_available()
+if (use_cuda):
+    device = torch.device('cuda:0') 
+else:
+    device = torch.device("cpu")
 
 class Sentences(Dataset):
     #Will be used to setup the dataloader for the sentences.
@@ -65,7 +75,7 @@ class Translator(nn.Module):
     self.decoder = Decoder(2 * encoder_dim, decoder_dim, decoder_layers, output_size, output_dim)
     self.encoded = None
     self.encoded_hidden = None
-    for param in self.encoder.parameters():
+    '''for param in self.encoder.parameters():
       try:
         torch.nn.init.xavier_uniform(param.data)
       except:
@@ -75,7 +85,7 @@ class Translator(nn.Module):
       try:
         torch.nn.init.xavier_uniform(param.data)
       except:
-        torch.nn.init.normal(param.data)
+        torch.nn.init.normal(param.data)'''
 
   def embed(self, batch, word2idx, embedding):
     first_done = False
@@ -84,13 +94,13 @@ class Translator(nn.Module):
     sentences = []
     for i in range(len(batch[0])):
         sent = batch[0][i] + " <EOS>" + " <PAD>" * (max_len - batch[1][i])
-      sentences.append(sent)
-      if (not first_done):
-        emb = torch.tensor([list(embedding(torch.tensor(word2idx[word], dtype = torch.long).to(torch.device(device)))) for word in sent.split()]).unsqueeze(0)
-        first_done = True
-      else:
-        new_sent = torch.tensor([list(embedding(torch.tensor(word2idx[word], dtype = torch.long).to(torch.device(device)))) for word in sent.split()]).unsqueeze(0)
-        emb = torch.cat((emb, new_sent), 0)
+        sentences.append(sent)
+        if (not first_done):
+            emb = torch.tensor([list(embedding(torch.tensor(word2idx[word], dtype = torch.long).to(torch.device(device)))) for word in sent.split()]).unsqueeze(0)
+            first_done = True
+        else:
+            new_sent = torch.tensor([list(embedding(torch.tensor(word2idx[word], dtype = torch.long).to(torch.device(device)))) for word in sent.split()]).unsqueeze(0)
+            emb = torch.cat((emb, new_sent), 0)
     return emb, lengths, sentences
 
   def embed_batch(self, batch):
